@@ -1,0 +1,13 @@
+env_name,train_frames,lr,stddev_schedule,feature_dim,replay_buffer_size,batch_size,nstep,DrQ-v2_level
+dmc:Cartpole-balance-v1,1000000,1.00E-04,"linear(1.0, 0.1, 100000)",50,1000000,256,3,easy
+dmc:Cartpole-swingup-v1,1000000,1.00E-04,"linear(1.0, 0.1, 100000)",50,1000000,256,3,easy
+dmc:Cheetah-run-v1,3000000,1.00E-04,"linear(1.0, 0.1, 500000)",50,1000000,256,3,medium
+dmc:Quadruped-run-v1,3000000,1.00E-04,"linear(1.0, 0.1, 500000)",50,1000000,256,3,medium
+dmc:Quadruped-walk-v1,3000000,1.00E-04,"linear(1.0, 0.1, 500000)",50,1000000,256,3,medium
+dmc:Hopper-hop-v1,3000000,1.00E-04,"linear(1.0, 0.1, 500000)",50,1000000,256,3,medium
+dmc:Ball_in_cup-catch-v1,1000000,1.00E-04,"linear(1.0, 0.1, 100000)",50,1000000,256,3,easy
+dmc:Finger-spin-v1,1000000,1.00E-04,"linear(1.0, 0.1, 100000)",50,1000000,256,3,easy
+dmc:Finger-turn_easy-v1,3000000,1.00E-04,"linear(1.0, 0.1, 500000)",50,1000000,256,3,medium
+dmc:Reacher-easy-v1,3000000,1.00E-04,"linear(1.0, 0.1, 500000)",50,1000000,256,3,medium
+dmc:Walker-stand-v1,1000000,1.00E-04,"linear(1.0, 0.1, 100000)",50,1000000,512,1,easy
+dmc:Walker-walk-v1,1000000,1.00E-04,"linear(1.0, 0.1, 100000)",50,1000000,512,1,easy
