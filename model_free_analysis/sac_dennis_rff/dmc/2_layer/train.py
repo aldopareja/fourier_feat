@@ -6,7 +6,7 @@ if __name__ == '__main__':
     from sac_dennis_rff.config import Args, Actor, Critic, Agent
     from params_proto.neo_hyper import Sweep
 
-    sweep = Sweep(RUN, Args, Actor, Critic, Agent).load("lff.jsonl")
+    sweep = Sweep(RUN, Args, Actor, Critic, Agent).load("debug.jsonl")
     # runner = None
     jaynes.config('supercloud')
 
