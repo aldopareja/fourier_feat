@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import numpy as np
 import torch
 import torch.nn as nn
@@ -6,6 +8,7 @@ import math
 import gym
 from copy import deepcopy
 from tqdm import trange
+import os
 
 from . import utils
 from .actor import DiagGaussianActor
@@ -14,6 +17,8 @@ from .replay_buffer import ReplayBuffer
 from params_proto.neo_proto import ParamsProto, PrefixProto, Proto
 from .config import Args, Actor, Critic, Agent
 from rff_kernels import models
+
+CHECKPOINT_PATH = Path(os.path.realpath(__file__)).parent.parent / 'checkpoints'
 
 class Progress(PrefixProto, cli=False):
     step = 0
@@ -418,11 +423,8 @@ def run(env, eval_env, agent, replay_buffer, progress, seed_steps, train_steps,
         if progress.step % checkpoint_freq == 0:
             logger.job_running()  # mark the job to be running.
             logger.print(f"saving checkpoint: {checkpoint_root}/{logger.prefix}", color="green")
-            with logger.time('checkpoint.agent'):
-                logger.save_torch(agent, checkpoint_root, logger.prefix, 'checkpoint/agent.pkl')
-            with logger.time('checkpoint.buffer'):
-                logger.save_torch(replay_buffer, checkpoint_root, logger.prefix, 'checkpoint/replay_buffer.pkl')
-            logger.duplicate("metrics.pkl", "metrics_latest.pkl")
+            torch.save(agent, CHECKPOINT_PATH / 'agent.pkl')
+            torch.save(replay_buffer, CHECKPOINT_PATH / 'replay_buffer.pkl')
             logger.log_params(Progress=vars(progress), path="checkpoint.pkl", silent=True)
 
         if done:

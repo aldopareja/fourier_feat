@@ -1,6 +1,9 @@
 if __name__ == '__main__':
+    # from ipdb import set_trace; set_trace()
+    # import os
+    # from pathlib import Path
     from ml_logger import logger, instr, needs_relaunch
-    from model_free_analysis.baselines import RUN
+    from model_free_analysis import RUN
     import jaynes
     from sac_dennis_rff.sac import train
     from sac_dennis_rff.config import Args, Actor, Critic, Agent
@@ -8,7 +11,7 @@ if __name__ == '__main__':
 
     sweep = Sweep(RUN, Args, Actor, Critic, Agent).load("debug.jsonl")
     # runner = None
-    jaynes.config('supercloud')
+    jaynes.config('local')
 
     for i, kwargs in enumerate(sweep):
         thunk = instr(train, **kwargs)

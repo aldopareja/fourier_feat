@@ -19,5 +19,5 @@ AWS_REGIONS = [
 
 import yaml
 
-with open(join(dirname(__file__), "../ec2_setup/ec2_image_ids.yml"), 'r') as stream:
-    IMAGE_IDS = yaml.load(stream, Loader=yaml.BaseLoader)
+# with open(join(dirname(__file__), "../ec2_setup/ec2_image_ids.yml"), 'r') as stream:
+#     IMAGE_IDS = yaml.load(stream, Loader=yaml.BaseLoader)
